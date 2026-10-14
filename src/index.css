@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { --bg: #FBF7F2; --fg: #2E1A13; --card: #ffffff; --line: #eadfd3; }
+  .dark { --bg: #1B1210; --fg: #F3E9DF; --card: #271a16; --line: #3b2a24; }
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans antialiased; background: var(--bg); color: var(--fg); }
+  h1, h2, h3 { @apply font-display; }
+  img { @apply max-w-full; }
+  :focus-visible { outline: 2px solid #C8553D; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: .01ms !important; } }
+}
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply bg-cocoa text-white hover:bg-cocoa-dark; }
+  .btn-brand { @apply bg-brand text-cocoa-dark hover:bg-brand-dark; }
+  .btn-outline { @apply border border-cocoa text-cocoa hover:bg-cocoa hover:text-white dark:border-brand dark:text-brand dark:hover:bg-brand dark:hover:text-cocoa-dark; }
+  .card { background: var(--card); border: 1px solid var(--line); @apply rounded-md shadow-card; }
+  .input { background: var(--card); border: 1px solid var(--line); color: var(--fg); @apply w-full rounded-md px-3 py-2.5 text-sm placeholder:text-gray-400; }
+  .section-title { @apply font-display text-2xl md:text-3xl font-semibold text-center mb-8; }
+  .muted { opacity: .7; }
+}
